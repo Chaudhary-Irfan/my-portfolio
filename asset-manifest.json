@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/my-portfolio/static/css/main.0ba055c3.css",
+    "main.js": "/my-portfolio/static/js/main.acbdd2e1.js",
+    "static/js/453.5d79306b.chunk.js": "/my-portfolio/static/js/453.5d79306b.chunk.js",
+    "static/media/logo1.png": "/my-portfolio/static/media/logo1.c868e7d7bf2203ddbfb6.png",
+    "static/media/home-main.svg": "/my-portfolio/static/media/home-main.359935c39288e92d4dba5c9f2445b91d.svg",
+    "static/media/about.png": "/my-portfolio/static/media/about.aee0f771fbfc1e7b8fa8.png",
+    "static/media/Chaudhury Irfan - Resume..pdf": "/my-portfolio/static/media/Chaudhury Irfan - Resume..9fe6918ff0d14d7b80f2.pdf",
+    "static/media/home-bg.jpg": "/my-portfolio/static/media/home-bg.dc52d5d40a40b13154b0.jpg",
+    "static/media/avatar.svg": "/my-portfolio/static/media/avatar.7f806e40d46fc76fbc3c4a3d71349951.svg",
+    "static/media/pre.svg": "/my-portfolio/static/media/pre.4410c5baaa673cc131da.svg",
+    "index.html": "/my-portfolio/index.html",
+    "main.0ba055c3.css.map": "/my-portfolio/static/css/main.0ba055c3.css.map",
+    "main.acbdd2e1.js.map": "/my-portfolio/static/js/main.acbdd2e1.js.map",
+    "453.5d79306b.chunk.js.map": "/my-portfolio/static/js/453.5d79306b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0ba055c3.css",
+    "static/js/main.acbdd2e1.js"
+  ]
+}
