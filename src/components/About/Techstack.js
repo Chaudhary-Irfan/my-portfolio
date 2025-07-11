@@ -5,59 +5,38 @@ import { SiDjango, SiMongodb, SiFirebase, SiMysql, SiExpo, SiPostgresql, SiDotne
 import { FaDatabase, FaLaptopCode, FaMobileAlt, FaTools } from "react-icons/fa";
 
 function Techstack() {
+  const techs = [
+    { icon: <DiJavascript1 />, name: "JavaScript" },
+    { icon: <DiReact />, name: "React.js / React Native" },
+    { icon: <DiNodejs />, name: "Node.js" },
+    { icon: <SiDjango />, name: "Django" },
+    { icon: <DiPython />, name: "Python" },
+    { icon: <SiMui />, name: "Material UI (MUI)" },
+    { icon: <SiDotnet />, name: ".NET" },
+    { icon: <SiFirebase />, name: "Firebase" },
+    { icon: <SiMysql />, name: "MySQL (SQL)" },
+    { icon: <SiMongodb />, name: "MongoDB (NoSQL)" },
+    { icon: <SiPostgresql />, name: "PostgreSQL" },
+    { icon: <SiExpo />, name: "Expo (React Native)" },
+    { icon: <DiGit />, name: "Git & Version Control" },
+    { icon: <FaMobileAlt />, name: "Mobile App Development" },
+    { icon: <FaLaptopCode />, name: "Web Development" },
+    { icon: <FaTools />, name: "Full Stack Engineering" },
+    { icon: <FaDatabase />, name: "Database Management" }
+  ];
+
   return (
-    <Row style={{ justifyContent: "center", paddingBottom: "50px" }}>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiJavascript1 title="JavaScript" />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiReact title="React.js / React Native" />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiNodejs title="Node.js" />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiDjango title="Django" />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <DiPython title="Python" />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiMui title="Material UI (MUI)" />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiDotnet title=".NET" />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiFirebase title="Firebase" />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiMysql title="MySQL (SQL)" />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiMongodb title="MongoDB (NoSQL)" />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <SiPostgresql title="PostgreSQL" />
-      </Col>
-      {/* <Col xs={4} md={2} className="tech-icons">
-        <SiExpo title="Expo (React Native)" />
-      </Col> */}
-      {/* <Col xs={4} md={2} className="tech-icons">
-        <DiGit title="Git & Version Control" />
-      </Col> */}
-      <Col xs={4} md={2} className="tech-icons">
-        <FaMobileAlt title="Mobile App Development" />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <FaLaptopCode title="Web Development" />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <FaTools title="Full Stack Engineering" />
-      </Col>
-      <Col xs={4} md={2} className="tech-icons">
-        <FaDatabase title="Data Visualization & DB Tools" />
-      </Col>
+    <Row className="tech-stack-container">
+      {techs.map((tech, index) => (
+        <Col xs={4} md={3} lg={2} className="tech-icon-col" key={index}>
+          <div className="tech-icon-card">
+            <div className="tech-icon-wrapper">
+              {tech.icon}
+            </div>
+            <p className="tech-name">{tech.name}</p>
+          </div>
+        </Col>
+      ))}
     </Row>
   );
 }

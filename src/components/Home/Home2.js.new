@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
-import myImg from "../../Assets/me.png";
+import myImg from "../../Assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
 import {
   AiFillGithub,
@@ -26,7 +26,7 @@ function Home2() {
               </div>
             </Tilt>
           </Col>
-
+          
           <Col lg={8} md={12} className="home-about-description">
             <div className="section-title-container">
               <h1 className="section-title">
@@ -34,7 +34,7 @@ function Home2() {
               </h1>
               <div className="section-title-underline"></div>
             </div>
-
+            
             <p className="home-about-body">
               I'm a passionate <b className="highlight-text">Full Stack Developer</b> who loves turning ideas into functional and clean digital experiences.
               <br />
@@ -58,7 +58,7 @@ function Home2() {
 
         <Row className="skill-card-row">
           <h2 className="skills-title">My Expertise</h2>
-
+          
           <Col lg={3} md={6} className="skill-card-col">
             <Card className="skill-card">
               <div className="skill-icon-container">
@@ -72,7 +72,7 @@ function Home2() {
               </Card.Body>
             </Card>
           </Col>
-
+          
           <Col lg={3} md={6} className="skill-card-col">
             <Card className="skill-card">
               <div className="skill-icon-container">
@@ -86,7 +86,7 @@ function Home2() {
               </Card.Body>
             </Card>
           </Col>
-
+          
           <Col lg={3} md={6} className="skill-card-col">
             <Card className="skill-card">
               <div className="skill-icon-container">
@@ -100,7 +100,7 @@ function Home2() {
               </Card.Body>
             </Card>
           </Col>
-
+          
           <Col lg={3} md={6} className="skill-card-col">
             <Card className="skill-card">
               <div className="skill-icon-container">

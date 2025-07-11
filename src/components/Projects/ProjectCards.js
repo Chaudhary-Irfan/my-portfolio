@@ -3,42 +3,56 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { CgWebsite } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
+import { FiExternalLink } from "react-icons/fi";
 
 function ProjectCards(props) {
   return (
     <Card className="project-card-view">
-      {props.imgPath ? (
-        <Card.Img variant="top" src={props.imgPath} alt="card-img" />
-      ) : (
-        <div style={{ fontSize: "4rem", textAlign: "center", padding: "40px 0" }}>
-          {props.icon}
-        </div>
-      )}
-      <Card.Body>
-        <Card.Title>{props.title}</Card.Title>
-        <Card.Text style={{ textAlign: "justify" }}>
-          {props.description}
-        </Card.Text>
-        <Button variant="primary" href={props.ghLink} target="_blank">
-          <BsGithub /> &nbsp;
-          {props.isBlog ? "Blog" : "GitHub"}
-        </Button>
-        {"\n"}
-        {"\n"}
-
-        {/* If the component contains Demo link and if it's not a Blog then, it will render the below component  */}
-
-        {!props.isBlog && props.demoLink && (
-          <Button
-            variant="primary"
-            href={props.demoLink}
-            target="_blank"
-            style={{ marginLeft: "10px" }}
-          >
-            <CgWebsite /> &nbsp;
-            {"Demo"}
-          </Button>
+      <div className="project-card-top">
+        {props.imgPath ? (
+          <Card.Img variant="top" src={props.imgPath} alt="card-img" className="project-image" />
+        ) : (
+          <div className="project-icon-container">
+            {props.icon}
+          </div>
         )}
+      </div>
+      
+      <Card.Body className="project-card-body">
+        <div className="project-card-content">
+          <Card.Title className="project-title">{props.title}</Card.Title>
+          <Card.Text className="project-description">
+            {props.description}
+          </Card.Text>
+        </div>
+        
+        <div className="project-card-footer">
+          {props.ghLink && (
+            <Button 
+              className="project-button github-button" 
+              href={props.ghLink} 
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View ${props.title} on GitHub`}
+            >
+              <BsGithub className="button-icon" />
+              <span>GitHub</span>
+            </Button>
+          )}
+          
+          {!props.isBlog && props.demoLink && (
+            <Button
+              className="project-button demo-button"
+              href={props.demoLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`View live demo of ${props.title}`}
+            >
+              <FiExternalLink className="button-icon" />
+              <span>Live Demo</span>
+            </Button>
+          )}
+        </div>
       </Card.Body>
     </Card>
   );

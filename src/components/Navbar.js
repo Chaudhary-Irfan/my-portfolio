@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
 import logo from "../Assets/logo1.png";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
 import { ImBlog } from "react-icons/im";
 import {
@@ -13,13 +13,16 @@ import {
   AiOutlineFundProjectionScreen,
   AiOutlineUser,
 } from "react-icons/ai";
-
 import { CgFileDocument } from "react-icons/cg";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 function NavBar() {
   const [expand, updateExpanded] = useState(false);
   const [navColour, updateNavbar] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(true); // Default to dark mode
+  const location = useLocation();
 
+  // Handle scroll event for navbar background change
   function scrollHandler() {
     if (window.scrollY >= 20) {
       updateNavbar(true);
@@ -28,34 +31,63 @@ function NavBar() {
     }
   }
 
-  window.addEventListener("scroll", scrollHandler);
+  // Add scroll event listener
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  }, []);
+
+  // Toggle between dark and light mode
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+    // In a real implementation, you would apply theme changes to the document here
+    // For now, we'll keep it simple as we're focusing on dark mode
+  };
+
+  // Check if the link is active
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
   return (
     <Navbar
       expanded={expand}
       fixed="top"
       expand="md"
-      className={navColour ? "sticky" : "navbar"}
+      className={`${navColour ? "sticky" : "navbar"} navbar-modern`}
+      variant="dark"
     >
       <Container>
-        <Navbar.Brand href="/" className="d-flex">
+        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center brand-container">
           <img src={logo} className="img-fluid logo" alt="brand" />
+          <span className="brand-text ms-2">Irfan</span>
         </Navbar.Brand>
+        
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={() => {
             updateExpanded(expand ? false : "expanded");
           }}
+          className="navbar-toggler-modern"
         >
           <span></span>
           <span></span>
           <span></span>
         </Navbar.Toggle>
+        
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto" defaultActiveKey="#home">
             <Nav.Item>
-              <Nav.Link as={Link} to="/" onClick={() => updateExpanded(false)}>
-                <AiOutlineHome style={{ marginBottom: "2px" }} /> Home
+              <Nav.Link 
+                as={Link} 
+                to="/" 
+                onClick={() => updateExpanded(false)}
+                className={isActive('/') ? 'nav-link-active' : ''}
+              >
+                <AiOutlineHome className="nav-icon" /> 
+                <span>Home</span>
               </Nav.Link>
             </Nav.Item>
 
@@ -64,8 +96,10 @@ function NavBar() {
                 as={Link}
                 to="/about"
                 onClick={() => updateExpanded(false)}
+                className={isActive('/about') ? 'nav-link-active' : ''}
               >
-                <AiOutlineUser style={{ marginBottom: "2px" }} /> About
+                <AiOutlineUser className="nav-icon" /> 
+                <span>About</span>
               </Nav.Link>
             </Nav.Item>
 
@@ -74,11 +108,10 @@ function NavBar() {
                 as={Link}
                 to="/project"
                 onClick={() => updateExpanded(false)}
+                className={isActive('/project') ? 'nav-link-active' : ''}
               >
-                <AiOutlineFundProjectionScreen
-                  style={{ marginBottom: "2px" }}
-                />{" "}
-                Projects
+                <AiOutlineFundProjectionScreen className="nav-icon" />
+                <span>Projects</span>
               </Nav.Link>
             </Nav.Item>
 
@@ -87,8 +120,10 @@ function NavBar() {
                 as={Link}
                 to="/resume"
                 onClick={() => updateExpanded(false)}
+                className={isActive('/resume') ? 'nav-link-active' : ''}
               >
-                <CgFileDocument style={{ marginBottom: "2px" }} /> Resume
+                <CgFileDocument className="nav-icon" /> 
+                <span>Resume</span>
               </Nav.Link>
             </Nav.Item>
 
@@ -98,8 +133,19 @@ function NavBar() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <ImBlog style={{ marginBottom: "2px" }} /> Blogs
+                <ImBlog className="nav-icon" /> 
+                <span>Blogs</span>
               </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item className="theme-toggle mx-2">
+              <Button 
+                onClick={toggleTheme} 
+                className="theme-btn"
+                aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+              >
+                {isDarkMode ? <FiSun /> : <FiMoon />}
+              </Button>
             </Nav.Item>
 
             <Nav.Item className="fork-btn">
@@ -107,8 +153,9 @@ function NavBar() {
                 href="https://github.com/Chaudhary-Irfan/TechSpyrce-Portfolio"
                 target="_blank"
                 className="fork-btn-inner"
+                aria-label="View source code on GitHub"
               >
-                <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
+                <CgGitFork style={{ fontSize: "1.2em" }} />
                 <AiFillStar style={{ fontSize: "1.1em" }} />
               </Button>
             </Nav.Item>

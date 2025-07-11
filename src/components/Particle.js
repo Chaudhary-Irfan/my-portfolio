@@ -8,45 +8,115 @@ function Particle() {
       params={{
         particles: {
           number: {
-            value: 160,
+            value: 80,
             density: {
               enable: true,
-              value_area: 1500,
+              value_area: 1200,
+            },
+          },
+          color: {
+            value: ["#4f46e5", "#06b6d4", "#10b981", "#f43f5e"],
+          },
+          shape: {
+            type: ["circle", "triangle", "polygon"],
+            stroke: {
+              width: 0,
+              color: "#000000",
+            },
+            polygon: {
+              nb_sides: 6,
+            },
+          },
+          opacity: {
+            value: 0.3,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 0.5,
+              opacity_min: 0.1,
+              sync: false,
+            },
+          },
+          size: {
+            value: 3,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 2,
+              size_min: 0.1,
+              sync: false,
             },
           },
           line_linked: {
-            enable: false,
-            opacity: 0.03,
+            enable: true,
+            distance: 150,
+            color: "#4f46e5",
+            opacity: 0.2,
+            width: 1,
           },
           move: {
-            direction: "right",
-            speed: 0.05,
-          },
-          size: {
-            value: 1,
-          },
-          opacity: {
-            anim: {
+            enable: true,
+            speed: 1,
+            direction: "none",
+            random: true,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
               enable: true,
-              speed: 1,
-              opacity_min: 0.05,
+              rotateX: 600,
+              rotateY: 1200,
             },
           },
         },
         interactivity: {
+          detect_on: "canvas",
           events: {
+            onhover: {
+              enable: true,
+              mode: "grab",
+            },
             onclick: {
               enable: true,
               mode: "push",
             },
+            resize: true,
           },
           modes: {
+            grab: {
+              distance: 140,
+              line_linked: {
+                opacity: 0.5,
+              },
+            },
+            bubble: {
+              distance: 400,
+              size: 4,
+              duration: 2,
+              opacity: 0.8,
+              speed: 3,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
             push: {
-              particles_nb: 1,
+              particles_nb: 4,
+            },
+            remove: {
+              particles_nb: 2,
             },
           },
         },
         retina_detect: true,
+        background: {
+          color: "transparent",
+          image: "",
+          position: "50% 50%",
+          repeat: "no-repeat",
+          size: "cover",
+        },
+        fps_limit: 60,
       }}
     />
   );
