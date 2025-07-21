@@ -90,12 +90,98 @@
   display: flex !important;
   flex-direction: column !important;
   transition: all 0.4s ease !important;
+  cursor: pointer;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.project-card-view.animated {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .project-card-view:hover {
   transform: translateY(-10px) !important;
   border: 1px solid rgba(79, 70, 229, 0.4) !important;
   box-shadow: 0 15px 25px -5px rgba(0, 0, 0, 0.2) !important;
+}
+
+.project-card-view.details-active {
+  transform: translateY(-10px) !important;
+  border: 1px solid rgba(79, 70, 229, 0.6) !important;
+  box-shadow: 0 20px 30px -8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: rgba(79, 70, 229, 0.85);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-weight: 600;
+}
+
+.project-card-view:hover .project-overlay {
+  opacity: 1;
+}
+
+.info-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-details {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.3s ease, margin 0.3s ease;
+  opacity: 0;
+  margin-top: 0;
+  background: rgba(79, 70, 229, 0.05);
+  border-radius: 8px;
+}
+
+.project-card-view.details-active .project-details {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.details-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.details-list {
+  padding-left: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.details-list li {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.details-tech {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  border-top: 1px solid rgba(79, 70, 229, 0.2);
+  padding-top: 0.8rem;
+  margin-bottom: 0;
 }
 
 .project-icon-container {

@@ -44,13 +44,13 @@ function AboutCard() {
           </h3>
           <ul className="interests-list">
             <li className="about-activity">
-              <ImPointRight className="activity-icon" /> Exploring new web and mobile tech stacks
+              <ImPointRight className="activity-icon" /> <span className="expertise-text">Exploring new web and mobile tech stacks</span>
             </li>
             <li className="about-activity">
-              <ImPointRight className="activity-icon" /> Designing sleek UIs with MUI and custom CSS
+              <ImPointRight className="activity-icon" /> <span className="expertise-text">Designing sleek UIs with MUI and custom CSS</span>
             </li>
             <li className="about-activity">
-              <ImPointRight className="activity-icon" /> Participating in development competitions & hackathons
+              <ImPointRight className="activity-icon" /> <span className="expertise-text">Participating in development competitions & hackathons</span>
             </li>
           </ul>
         </div>

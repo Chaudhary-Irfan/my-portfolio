@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
+import ScrollAnimation from "../ScrollAnimation";
 import { FaMobileAlt, FaGamepad, FaReact, FaShoppingCart, FaBrain, FaUserGraduate, FaChartBar, FaCode, FaCalendarCheck, FaEnvelopeOpenText } from "react-icons/fa";
 import "./Projects.css";
 
@@ -17,7 +18,7 @@ function Projects() {
       title: "Real-Time ChatApp",
       description: "Cross-platform chat app built using React Native (Expo), Django, and SQL Server. Supports real-time messaging, secure authentication, and scalable backend.",
       ghLink: "https://github.com/Chaudhary-Irfan/ChatApp/tree/main/myproject",
-      category: "mobile"
+      category: "fullstack",
     },
     {
       id: 2,
@@ -54,34 +55,42 @@ function Projects() {
     },
     {
       id: 6,
+      icon: <FaReact />,
+      title: "Portfolio Website",
+      description: "This portfolio website built with React.js featuring dark/light mode, responsive design, and interactive components. Showcases projects, skills, and resume.",
+      ghLink: "https://github.com/Chaudhary-Irfan/Portfolio",
+      category: "web"
+    },
+    {
+      id: 7,
       icon: <FaCalendarCheck />,
       title: "Attendance & Duty Module",
       description: "Client project built in React Native for attendance tracking and duty assignment. Mobile-first approach with a clean UI. [Private repo]",
       category: "mobile"
     },
     {
-      id: 7,
+      id: 8,
       icon: <FaMobileAlt />,
       title: "Shop Management App",
       description: "React Native Expo app for managing shop inventory and sales records. Developed as a private client project.",
       category: "mobile"
     },
     {
-      id: 8,
+      id: 9,
       icon: <FaBrain />,
       title: "TB Diagnosis App",
       description: "Android app using Java and XML for tuberculosis detection support. Built with Android Studio for a client. [Private project]",
       category: "mobile"
     },
     {
-      id: 9,
+      id: 10,
       icon: <FaEnvelopeOpenText />,
       title: "Email & WhatsApp Integration App",
       description: "React Native and Node.js based app for handling WhatsApp and Email communication from a single interface. [Client project – private]",
       category: "fullstack"
     },
     {
-      id: 10,
+      id: 11,
       icon: <FaMobileAlt />,
       title: "Ride Booking App (Frontend)",
       description: "Frontend UI for ride booking mobile app built with React Native and Expo. [Client project – private]",
@@ -114,61 +123,69 @@ function Projects() {
       <div className="project-background"></div>
       <Particle />
       <Container>
-        <div className="section-title-container text-center">
-          <h1 className="section-title">
-            My Recent <span className="highlight-text">Projects</span>
-          </h1>
-          <div className="section-title-underline mx-auto"></div>
-        </div>
+        <ScrollAnimation animationType="fade-in" duration="slow">
+          <div className="section-title-container text-center">
+            <h1 className="section-title">
+              My Recent <span className="highlight-text">Projects</span>
+            </h1>
+            <div className="section-title-underline mx-auto"></div>
+          </div>
+        </ScrollAnimation>
         
-        <p className="project-subtitle">
-          Here are some projects I've worked on recently across mobile, web, and full-stack development.
-        </p>
+        <ScrollAnimation animationType="fade-in" delay="200">
+          <p className="project-subtitle">
+            Here are some projects I've worked on recently across mobile, web, and full-stack development.
+          </p>
+        </ScrollAnimation>
         
-        <div className="project-filter-container">
-          <Button 
-            className={`filter-button ${filter === 'all' ? 'active' : ''}`}
-            onClick={() => setFilter('all')}
-          >
-            All Projects
-          </Button>
-          <Button 
-            className={`filter-button ${filter === 'web' ? 'active' : ''}`}
-            onClick={() => setFilter('web')}
-          >
-            Web
-          </Button>
-          <Button 
-            className={`filter-button ${filter === 'mobile' ? 'active' : ''}`}
-            onClick={() => setFilter('mobile')}
-          >
-            Mobile
-          </Button>
-          <Button 
-            className={`filter-button ${filter === 'fullstack' ? 'active' : ''}`}
-            onClick={() => setFilter('fullstack')}
-          >
-            Full Stack
-          </Button>
-        </div>
+        <ScrollAnimation animationType="slide-up" duration="fast">
+          <div className="project-filter-container">
+            <Button 
+              className={`filter-button ${filter === 'all' ? 'active' : ''}`}
+              onClick={() => setFilter('all')}
+            >
+              All Projects
+            </Button>
+            <Button 
+              className={`filter-button ${filter === 'web' ? 'active' : ''}`}
+              onClick={() => setFilter('web')}
+            >
+              Web
+            </Button>
+            <Button 
+              className={`filter-button ${filter === 'mobile' ? 'active' : ''}`}
+              onClick={() => setFilter('mobile')}
+            >
+              Mobile
+            </Button>
+            <Button 
+              className={`filter-button ${filter === 'fullstack' ? 'active' : ''}`}
+              onClick={() => setFilter('fullstack')}
+            >
+              Full Stack
+            </Button>
+          </div>
+        </ScrollAnimation>
         
-        <Row className="project-card-container">
-          {filteredProjects.map((project) => (
-            <Col lg={4} md={6} className="project-card-col" key={project.id}>
-              <div
-                className={`project-card-wrapper ${animatedItems.includes(project.id) ? 'animate' : ''}`}
-              >
-                <ProjectCard
-                  icon={project.icon}
-                  title={project.title}
-                  description={project.description}
-                  ghLink={project.ghLink}
-                  demoLink={project.demoLink}
-                />
-              </div>
-            </Col>
-          ))}
-        </Row>
+        <ScrollAnimation animationType="fade-in" stagger={true} threshold={0.1}>
+          <Row className="project-card-container">
+            {filteredProjects.map((project) => (
+              <Col lg={4} md={6} className="project-card-col" key={project.id}>
+                <div
+                  className={`project-card-wrapper ${animatedItems.includes(project.id) ? 'animate' : ''}`}
+                >
+                  <ProjectCard
+                    icon={project.icon}
+                    title={project.title}
+                    description={project.description}
+                    ghLink={project.ghLink}
+                    demoLink={project.demoLink}
+                  />
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </ScrollAnimation>
       </Container>
     </Container>
   );

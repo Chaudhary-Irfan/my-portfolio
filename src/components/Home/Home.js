@@ -4,6 +4,7 @@ import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
+import ScrollAnimation from "../ScrollAnimation";
 import { Link } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
 import { AiOutlineDownload } from "react-icons/ai";
@@ -25,73 +26,89 @@ function Home() {
         <Container className="home-content">
           <Row className="align-items-center">
             <Col lg={7} md={12} className="home-header" ref={heroRef}>
-              <div className="hero-badge">
-                <span>Full Stack Developer</span>
-              </div>
-              
-              <h1 className="hero-title">
-                Hi There!{" "}
-                <span className="wave" role="img" aria-labelledby="wave">
-                  👋🏻
-                </span>
-              </h1>
-
-              <h1 className="heading-name">
-                I'M {" "}
-                <strong className="main-name">  Chaudhary Irfan</strong>
-              </h1>
-
-              <div className="hero-type-wrapper">
-                <Type />
-              </div>
-              
-              <p className="hero-description">
-                I build exceptional digital experiences with modern technologies.
-                Specializing in creating responsive, high-performance applications
-                that solve real-world problems.
-              </p>
-              
-              <div className="hero-buttons">
-                <Button 
-                  as={Link} 
-                  to="/project" 
-                  className="primary-button"
-                  aria-label="View my projects"
-                >
-                  View My Work <FiArrowRight className="ms-2" />
-                </Button>
-                
-                <Button 
-                  as={Link} 
-                  to="/resume" 
-                  className="secondary-button ms-3"
-                  aria-label="Download my resume"
-                >
-                  Resume <AiOutlineDownload className="ms-2" />
-                </Button>
-              </div>
-              
-              <div className="tech-stack">
-                <span>Tech Stack:</span>
-                <div className="tech-icons-small">
-                  <div className="tech-icon">React</div>
-                  <div className="tech-icon">Django</div>
-                  <div className="tech-icon">React Native</div>
-                  <div className="tech-icon">Python</div>
+              <ScrollAnimation animationType="slide-right" duration="slow">
+                <div className="hero-badge">
+                  <span>Full Stack Developer</span>
                 </div>
-              </div>
+              </ScrollAnimation>
+              
+              <ScrollAnimation animationType="slide-right" delay="200">
+                <h1 className="hero-title">
+                  Hi There!{" "}
+                  <span className="wave" role="img" aria-labelledby="wave">
+                    👋🏻
+                  </span>
+                </h1>
+              </ScrollAnimation>
+
+              <ScrollAnimation animationType="slide-right" delay="300">
+                <h1 className="heading-name">
+                  I'M {" "}
+                  <strong className="main-name">  Chaudhary Irfan</strong>
+                </h1>
+              </ScrollAnimation>
+
+              <ScrollAnimation animationType="fade-in" delay="400">
+                <div className="hero-type-wrapper">
+                  <Type />
+                </div>
+              </ScrollAnimation>
+              
+              <ScrollAnimation animationType="fade-in" delay="500">
+                <p className="hero-description">
+                  I build exceptional digital experiences with modern technologies.
+                  Specializing in creating responsive, high-performance applications
+                  that solve real-world problems.
+                </p>
+              </ScrollAnimation>
+              
+              <ScrollAnimation animationType="slide-up" delay="600">
+                <div className="hero-buttons">
+                  <Button 
+                    as={Link} 
+                    to="/project" 
+                    className="primary-button"
+                    aria-label="View my projects"
+                  >
+                    View My Work <FiArrowRight className="ms-2" />
+                  </Button>
+                  
+                  <Button 
+                    as={Link} 
+                    to="/resume" 
+                    className="secondary-button ms-3"
+                    aria-label="Download my resume"
+                  >
+                    Resume <AiOutlineDownload className="ms-2" />
+                  </Button>
+                </div>
+              </ScrollAnimation>
+              
+              <ScrollAnimation animationType="fade-in" delay="700">
+                <div className="tech-stack">
+                  <span>Tech Stack:</span>
+                  <div className="tech-icons-small">
+                    <div className="tech-icon">React</div>
+                    <div className="tech-icon">Django</div>
+                    <div className="tech-icon">React Native</div>
+                    <div className="tech-icon">Python</div>
+                  </div>
+                </div>
+              </ScrollAnimation>
             </Col>
 
             <Col lg={5} md={12} className="home-img-column">
-              <div className="home-image-container">
-                <div className="home-image-background"></div>
-                <img
-                  src={homeLogo}
-                  alt="developer illustration"
-                  className="img-fluid home-main-icon"
-                  loading="lazy"
-                />
-              </div>
+              <ScrollAnimation animationType="zoom-in" duration="slow">
+                <div className="home-image-container">
+                  <div className="home-image-background"></div>
+                  <img
+                    src={homeLogo}
+                    alt="developer illustration"
+                    className="img-fluid home-main-icon float"
+                    loading="lazy"
+                  />
+                </div>
+              </ScrollAnimation>
             </Col>
           </Row>
         </Container>

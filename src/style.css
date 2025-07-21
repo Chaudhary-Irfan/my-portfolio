@@ -11,6 +11,10 @@ html {
   --text-secondary: #d1d5db;
   --text-tertiary: #9ca3af;
   
+  /* Prevent horizontal scrolling */
+  overflow-x: hidden;
+  max-width: 100%;
+  
   /* Gradients */
   --section-background-color: linear-gradient(
     135deg,
@@ -413,10 +417,7 @@ button:focus {
   font-size: 3.2em !important;
   font-weight: 700 !important;
   margin-bottom: 0.5rem !important;
-  background: linear-gradient(90deg, var(--text-primary), var(--text-secondary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: white !important;
 }
 
 .heading-name {
@@ -816,7 +817,7 @@ button:focus {
 .skill-title {
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--text-primary);
+  color: white !important;
   text-align: center;
   margin-bottom: 1rem;
 }
@@ -1128,7 +1129,7 @@ button:focus {
 
 .scroll-to-top {
   position: fixed;
-  bottom: 20px;
+  bottom: 0px;
   right: 20px;
   width: 45px;
   height: 45px;

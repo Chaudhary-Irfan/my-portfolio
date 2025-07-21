@@ -1,0 +1,227 @@
+/* Scroll Animation Styles */
+
+/* Base class for animated elements */
+.animate-on-scroll {
+  opacity: 0;
+  transition: all 0.8s ease;
+}
+
+/* Animation variations */
+.fade-in {
+  opacity: 0;
+}
+
+.fade-in.animated {
+  opacity: 1;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.slide-up.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-right {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.slide-right.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-left {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.slide-left.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.zoom-in.animated {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.rotate-in {
+  opacity: 0;
+  transform: rotateY(90deg);
+}
+
+.rotate-in.animated {
+  opacity: 1;
+  transform: rotateY(0);
+}
+
+/* Animation delay classes */
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+.delay-400 {
+  transition-delay: 400ms;
+}
+
+.delay-500 {
+  transition-delay: 500ms;
+}
+
+.delay-600 {
+  transition-delay: 600ms;
+}
+
+.delay-700 {
+  transition-delay: 700ms;
+}
+
+.delay-800 {
+  transition-delay: 800ms;
+}
+
+/* Animation duration classes */
+.duration-fast {
+  transition-duration: 600ms;
+}
+
+.duration-normal {
+  transition-duration: 800ms;
+}
+
+.duration-slow {
+  transition-duration: 1200ms;
+}
+
+/* Staggered animation for lists */
+.stagger-list > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+
+.stagger-list.animated > *:nth-child(1) {
+  transition-delay: 100ms;
+}
+
+.stagger-list.animated > *:nth-child(2) {
+  transition-delay: 200ms;
+}
+
+.stagger-list.animated > *:nth-child(3) {
+  transition-delay: 300ms;
+}
+
+.stagger-list.animated > *:nth-child(4) {
+  transition-delay: 400ms;
+}
+
+.stagger-list.animated > *:nth-child(5) {
+  transition-delay: 500ms;
+}
+
+.stagger-list.animated > *:nth-child(6) {
+  transition-delay: 600ms;
+}
+
+.stagger-list.animated > *:nth-child(7) {
+  transition-delay: 700ms;
+}
+
+.stagger-list.animated > *:nth-child(8) {
+  transition-delay: 800ms;
+}
+
+.stagger-list.animated > *:nth-child(9) {
+  transition-delay: 900ms;
+}
+
+.stagger-list.animated > *:nth-child(10) {
+  transition-delay: 1000ms;
+}
+
+.stagger-list.animated > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Special animations */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.shake {
+  animation: shake 5s cubic-bezier(.36,.07,.19,.97) infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  0%, 92%, 96%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+  94%, 98% {
+    transform: translate3d(-5px, 0, 0);
+  }
+  93%, 95%, 97%, 99% {
+    transform: translate3d(5px, 0, 0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .animate-on-scroll {
+    transition-delay: 0ms !important;
+  }
+  
+  .stagger-list > * {
+    transition-delay: 0ms !important;
+  }
+}

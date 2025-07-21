@@ -11,6 +11,7 @@ import {
 import ScrollToTop from "./components/ScrollToTop";
 import "./style.css";
 import "./App.css";
+import "./components/ScrollAnimations.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // Lazy load components for better performance

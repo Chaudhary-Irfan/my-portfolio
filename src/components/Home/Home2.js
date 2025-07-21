@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import myImg from "../../Assets/me.png";
 import Tilt from "react-parallax-tilt";
+import ScrollAnimation from "../ScrollAnimation";
 import {
   AiFillGithub,
   AiOutlineWhatsApp,
@@ -11,6 +12,8 @@ import {
 } from "react-icons/ai";
 import { FaLinkedinIn, FaReact } from "react-icons/fa";
 import { SiDjango } from "react-icons/si";
+import "../../style.css";
+
 
 function Home2() {
   return (
@@ -19,157 +22,173 @@ function Home2() {
       <Container>
         <Row className="align-items-center">
           <Col lg={4} md={12} className="myAvtar mb-4 mb-lg-0">
-            <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.05} transitionSpeed={2000}>
-              <div className="avatar-card">
-                <div className="avatar-glow"></div>
-                <img src={myImg} className="img-fluid avatar-image" alt="avatar" loading="lazy" />
-              </div>
-            </Tilt>
+            <ScrollAnimation animationType="zoom-in" duration="slow">
+              <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.05} transitionSpeed={2000}>
+                <div className="avatar-card">
+                  <div className="avatar-glow"></div>
+                  <img src={myImg} className="img-fluid avatar-image" alt="avatar" loading="lazy" />
+                </div>
+              </Tilt>
+            </ScrollAnimation>
           </Col>
 
           <Col lg={8} md={12} className="home-about-description">
-            <div className="section-title-container">
-              <h1 className="section-title">
-                About <span className="highlight-text">Me</span>
-              </h1>
-              <div className="section-title-underline"></div>
-            </div>
+            <ScrollAnimation animationType="fade-in" duration="normal">
+              <div className="section-title-container">
+                <h1 className="section-title">
+                  About <span className="highlight-text">Me</span>
+                </h1>
+                <div className="section-title-underline"></div>
+              </div>
+            </ScrollAnimation>
 
-            <p className="home-about-body">
-              I'm a passionate <b className="highlight-text">Full Stack Developer</b> who loves turning ideas into functional and clean digital experiences.
-              <br />
-              <br />I specialize in building cross-platform mobile apps using
-              <i>
-                <b className="highlight-text"> React Native</b>
-              </i>
-              , and I'm also experienced with web technologies like
-              <i>
-                <b className="highlight-text"> React.js, Django, and Python.</b>
-              </i>
-              <br />
-              <br />
-              My areas of interest include developing
-              <i>
-                <b className="highlight-text"> real-time applications</b>, scalable backend systems, and user-focused interfaces.
-              </i>
-            </p>
+            <ScrollAnimation animationType="slide-left" duration="normal">
+              <p className="home-about-body">
+                I'm a passionate <b className="main-name">Full Stack Developer</b> who loves turning ideas into functional and clean digital experiences.
+                <br />
+                <br />I specialize in building cross-platform mobile apps using
+                <i>
+                  <b className="main-name"> React Native</b>
+                </i>
+                , and I'm also experienced with web technologies like
+                <i>
+                  <b className="main-name"> React.js, Django, and Python.</b>
+                </i>
+                <br />
+                <br />
+                My areas of interest include developing
+                <i>
+                  <b className="main-name"> real-time applications</b>, scalable backend systems, and user-focused interfaces.
+                </i>
+              </p>
+            </ScrollAnimation>
           </Col>
         </Row>
 
-        <Row className="skill-card-row">
-          <h2 className="skills-title">My Expertise</h2>
+        <ScrollAnimation animationType="fade-in" duration="normal">
+          <Row className="skill-card-row">
+            <h2 className="skills-title">My Expertise</h2>
 
-          <Col lg={3} md={6} className="skill-card-col">
-            <Card className="skill-card">
-              <div className="skill-icon-container">
-                <FaReact className="skill-icon" />
-              </div>
-              <Card.Body>
-                <Card.Title className="skill-title">Frontend Development</Card.Title>
-                <Card.Text className="skill-text">
-                  Creating responsive, modern user interfaces with React.js and related technologies.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
+            <ScrollAnimation animationType="slide-up" stagger={true} threshold={0.1}>
+              <Row>
+                <Col lg={3} md={6} className="skill-card-col">
+                  <Card className="skill-card">
+                    <div className="skill-icon-container">
+                      <FaReact className="skill-icon" />
+                    </div>
+                    <Card.Body>
+                      <Card.Title className="skill-title">Frontend Development</Card.Title>
+                      <Card.Text className="skill-text">
+                        Creating responsive, modern user interfaces with React.js and related technologies.
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
 
-          <Col lg={3} md={6} className="skill-card-col">
-            <Card className="skill-card">
-              <div className="skill-icon-container">
-                <AiOutlineMobile className="skill-icon" />
-              </div>
-              <Card.Body>
-                <Card.Title className="skill-title">Mobile Development</Card.Title>
-                <Card.Text className="skill-text">
-                  Building cross-platform mobile applications using React Native.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
+                <Col lg={3} md={6} className="skill-card-col">
+                  <Card className="skill-card">
+                    <div className="skill-icon-container">
+                      <AiOutlineMobile className="skill-icon" />
+                    </div>
+                    <Card.Body>
+                      <Card.Title className="skill-title">Mobile Development</Card.Title>
+                      <Card.Text className="skill-text">
+                        Building cross-platform mobile applications using React Native.
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
 
-          <Col lg={3} md={6} className="skill-card-col">
-            <Card className="skill-card">
-              <div className="skill-icon-container">
-                <SiDjango className="skill-icon" />
-              </div>
-              <Card.Body>
-                <Card.Title className="skill-title">Backend Development</Card.Title>
-                <Card.Text className="skill-text">
-                  Developing robust server-side applications with Django and Python.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
+                <Col lg={3} md={6} className="skill-card-col">
+                  <Card className="skill-card">
+                    <div className="skill-icon-container">
+                      <SiDjango className="skill-icon" />
+                    </div>
+                    <Card.Body>
+                      <Card.Title className="skill-title">Backend Development</Card.Title>
+                      <Card.Text className="skill-text">
+                        Developing robust server-side applications with Django and Python.
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
 
-          <Col lg={3} md={6} className="skill-card-col">
-            <Card className="skill-card">
-              <div className="skill-icon-container">
-                <AiOutlineDatabase className="skill-icon" />
-              </div>
-              <Card.Body>
-                <Card.Title className="skill-title">Database Design</Card.Title>
-                <Card.Text className="skill-text">
-                  Creating efficient database structures and implementing data management solutions.
-                </Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+                <Col lg={3} md={6} className="skill-card-col">
+                  <Card className="skill-card">
+                    <div className="skill-icon-container">
+                      <AiOutlineDatabase className="skill-icon" />
+                    </div>
+                    <Card.Body>
+                      <Card.Title className="skill-title">Database Design</Card.Title>
+                      <Card.Text className="skill-text">
+                        Creating efficient database structures and implementing data management solutions.
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              </Row>
+            </ScrollAnimation>
+          </Row>
+        </ScrollAnimation>
 
-        <Row>
-          <Col md={12} className="home-about-social">
-            <h1 className="connect-title">Let's Connect</h1>
-            <p className="connect-subtitle">
-              Feel free to reach out for collaborations or just a friendly chat
-            </p>
-            <ul className="home-about-social-links">
-              <li className="social-icons">
-                <a
-                  href="https://github.com/Chaudhary-Irfan"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="home-social-icons"
-                  aria-label="GitHub Profile"
-                >
-                  <AiFillGithub />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://wa.me/923185248744?text=Hi%20Irfan,%20I%20visited%20your%20portfolio%20website%20and%20would%20like%20to%20connect."
-                  target="_blank"
-                  rel="noreferrer"
-                  className="home-social-icons"
-                  aria-label="WhatsApp Contact"
-                >
-                  <AiOutlineWhatsApp />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="https://www.linkedin.com/in/chaudhary-irfan"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="home-social-icons"
-                  aria-label="LinkedIn Profile"
-                >
-                  <FaLinkedinIn />
-                </a>
-              </li>
-              <li className="social-icons">
-                <a
-                  href="mailto:chaudharyirfan0420@gmail.com?subject=Regarding%20Your%20Portfolio&body=Hi%20Irfan%2C%0A%0AI%20just%20visited%20your%20developer%20portfolio%20and%20wanted%20to%20get%20in%20touch%20with%20you."
-                  target="_blank"
-                  rel="noreferrer"
-                  className="home-social-icons"
-                  aria-label="Email Contact"
-                >
-                  <AiTwotoneMail />
-                </a>
-              </li>
-            </ul>
-          </Col>
-        </Row>
+        <ScrollAnimation animationType="fade-in" duration="normal">
+          <Row>
+            <Col md={12} className="home-about-social">
+              <h1 className="connect-title">Let's Connect</h1>
+              <p className="connect-subtitle">
+                Feel free to reach out for collaborations or just a friendly chat
+              </p>
+              <ScrollAnimation animationType="slide-up" duration="fast">
+                <ul className="home-about-social-links">
+                  <li className="social-icons">
+                    <a
+                      href="https://github.com/Chaudhary-Irfan"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="home-social-icons"
+                      aria-label="GitHub Profile"
+                    >
+                      <AiFillGithub />
+                    </a>
+                  </li>
+                  <li className="social-icons">
+                    <a
+                      href="https://wa.me/923185248744?text=Hi%20Irfan,%20I%20visited%20your%20portfolio%20website%20and%20would%20like%20to%20connect."
+                      target="_blank"
+                      rel="noreferrer"
+                      className="home-social-icons"
+                      aria-label="WhatsApp Contact"
+                    >
+                      <AiOutlineWhatsApp />
+                    </a>
+                  </li>
+                  <li className="social-icons">
+                    <a
+                      href="https://www.linkedin.com/in/chaudhary-irfan"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="home-social-icons"
+                      aria-label="LinkedIn Profile"
+                    >
+                      <FaLinkedinIn />
+                    </a>
+                  </li>
+                  <li className="social-icons">
+                    <a
+                      href="mailto:chaudharyirfan0420@gmail.com?subject=Regarding%20Your%20Portfolio&body=Hi%20Irfan%2C%0A%0AI%20just%20visited%20your%20developer%20portfolio%20and%20wanted%20to%20get%20in%20touch%20with%20you."
+                      target="_blank"
+                      rel="noreferrer"
+                      className="home-social-icons"
+                      aria-label="Email Contact"
+                    >
+                      <AiTwotoneMail />
+                    </a>
+                  </li>
+                </ul>
+              </ScrollAnimation>
+            </Col>
+          </Row>
+        </ScrollAnimation>
       </Container>
     </Container>
   );

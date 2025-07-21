@@ -111,6 +111,17 @@
   font-size: 1rem;
 }
 
+.expertise-text {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.about-activity:hover .expertise-text {
+  color: var(--primary-color);
+  text-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
+}
+
 .about-quote {
   margin-top: 2rem;
   padding: 1.5rem;

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Particle from "../Particle";
+import ScrollAnimation from "../ScrollAnimation";
 import pdf from "../../Assets/../Assets/Chaudhury Irfan - Resume..pdf";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
@@ -19,35 +20,43 @@ function ResumeNew() {
     <div>
       <Container fluid className="resume-section">
         <Particle />
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
-        </Row>
+        <ScrollAnimation animationType="fade-in" duration="normal">
+          <Row style={{ justifyContent: "center", position: "relative" }}>
+            <Button
+              variant="primary"
+              href={pdf}
+              target="_blank"
+              style={{ maxWidth: "250px" }}
+              className="primary-button"
+            >
+              <AiOutlineDownload />
+              &nbsp;Download CV
+            </Button>
+          </Row>
+        </ScrollAnimation>
 
-        <Row className="resume">
-          <Document file={pdf} className="d-flex justify-content-center">
-            <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
-          </Document>
-        </Row>
+        <ScrollAnimation animationType="zoom-in" duration="slow">
+          <Row className="resume">
+            <Document file={pdf} className="d-flex justify-content-center">
+              <Page pageNumber={1} scale={width > 786 ? 1.7 : 0.6} />
+            </Document>
+          </Row>
+        </ScrollAnimation>
 
-        <Row style={{ justifyContent: "center", position: "relative" }}>
-          <Button
-            variant="primary"
-            href={pdf}
-            target="_blank"
-            style={{ maxWidth: "250px" }}
-          >
-            <AiOutlineDownload />
-            &nbsp;Download CV
-          </Button>
-        </Row>
+        <ScrollAnimation animationType="slide-up" duration="normal">
+          <Row style={{ justifyContent: "center", position: "relative" }}>
+            <Button
+              variant="primary"
+              href={pdf}
+              target="_blank"
+              style={{ maxWidth: "250px" }}
+              className="primary-button"
+            >
+              <AiOutlineDownload />
+              &nbsp;Download CV
+            </Button>
+          </Row>
+        </ScrollAnimation>
       </Container>
     </div>
   );
