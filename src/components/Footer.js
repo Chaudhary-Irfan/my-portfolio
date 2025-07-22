@@ -54,6 +54,7 @@ function Footer() {
               <Link to="/" className="footer-nav-link">Home</Link>
               <Link to="/about" className="footer-nav-link">About</Link>
               <Link to="/project" className="footer-nav-link">Projects</Link>
+              <Link to="/services" className="footer-nav-link">Services</Link>
               <Link to="/resume" className="footer-nav-link">Resume</Link>
             </div>
           </Col>

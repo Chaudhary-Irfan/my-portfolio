@@ -8,6 +8,7 @@ import ScrollAnimation from "../ScrollAnimation";
 import { Link } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
 import { AiOutlineDownload } from "react-icons/ai";
+import { MdMiscellaneousServices } from "react-icons/md";
 
 function Home() {
   const heroRef = useRef(null);
@@ -75,8 +76,17 @@ function Home() {
                   
                   <Button 
                     as={Link} 
+                    to="/services" 
+                    className="secondary-button"
+                    aria-label="View my services"
+                  >
+                    Services <MdMiscellaneousServices className="ms-2" />
+                  </Button>
+                  
+                  <Button 
+                    as={Link} 
                     to="/resume" 
-                    className="secondary-button ms-3"
+                    className="secondary-button"
                     aria-label="Download my resume"
                   >
                     Resume <AiOutlineDownload className="ms-2" />

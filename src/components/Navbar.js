@@ -14,6 +14,7 @@ import {
   AiOutlineUser,
 } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
+import { MdMiscellaneousServices } from "react-icons/md";
 import { FiSun, FiMoon } from "react-icons/fi";
 
 function NavBar() {
@@ -112,6 +113,18 @@ function NavBar() {
               >
                 <AiOutlineFundProjectionScreen className="nav-icon" />
                 <span>Projects</span>
+              </Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+              <Nav.Link
+                as={Link}
+                to="/services"
+                onClick={() => updateExpanded(false)}
+                className={isActive('/services') ? 'nav-link-active' : ''}
+              >
+                <MdMiscellaneousServices className="nav-icon" />
+                <span>Services</span>
               </Nav.Link>
             </Nav.Item>
 

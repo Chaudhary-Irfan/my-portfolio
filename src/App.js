@@ -19,6 +19,7 @@ const Home = lazy(() => import("./components/Home/Home"));
 const About = lazy(() => import("./components/About/About"));
 const Projects = lazy(() => import("./components/Projects/Projects"));
 const Resume = lazy(() => import("./components/Resume/ResumeNew"));
+const Services = lazy(() => import("./components/Services/Services"));
 
 // Loading component for suspense fallback
 const LazyLoader = () => {
@@ -86,6 +87,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/project" element={<Projects />} />
             <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="*" element={<Navigate to="/"/>} />
           </Routes>

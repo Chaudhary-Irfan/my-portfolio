@@ -469,7 +469,9 @@ button:focus {
 
 .hero-buttons {
   display: flex;
+  gap: 1rem;
   margin-bottom: 2.5rem;
+  flex-wrap: wrap;
 }
 
 .primary-button {
