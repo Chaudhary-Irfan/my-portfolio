@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
 import myImg from "../../Assets/me.png";
-import Tilt from "react-parallax-tilt";
 import ScrollAnimation from "../ScrollAnimation";
 import {
   AiFillGithub,
@@ -14,6 +13,60 @@ import { FaLinkedinIn, FaReact } from "react-icons/fa";
 import { SiDjango } from "react-icons/si";
 import "../../style.css";
 
+// Custom Tilt component using hooks
+function Tilt({
+  children,
+  max = 20,
+  scale = 1.05,
+  transition = 400,
+  glare = false,
+  ...rest
+}) {
+  const ref = useRef(null);
+  const [style, setStyle] = useState({});
+
+  const handleMouseMove = (e) => {
+    const node = ref.current;
+    if (!node) return;
+
+    const { left, top, width, height } = node.getBoundingClientRect();
+    const x = e.clientX - left;
+    const y = e.clientY - top;
+    const percentX = (x / width - 0.5) * 2; // -1 to 1
+    const percentY = (y / height - 0.5) * 2;
+
+    const rotateY = percentX * max * -1;
+    const rotateX = percentY * max;
+
+    setStyle({
+      transform: `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale(${scale})`,
+      transition: `transform ${transition}ms cubic-bezier(.03,.98,.52,.99)`,
+      willChange: 'transform',
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setStyle({
+      transform: `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`,
+      transition: `transform ${transition}ms ease-out`,
+    });
+  };
+
+
+  return (
+    <div
+      ref={ref}
+      style={{ ...style, borderRadius: '1rem' }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      tabIndex={0}
+      aria-label="Professional tilt effect"
+      {...rest}
+    >
+      {children}
+    </div>
+  );
+}
 
 function Home2() {
   return (
@@ -23,7 +76,7 @@ function Home2() {
         <Row className="align-items-center">
           <Col lg={4} md={12} className="myAvtar mb-4 mb-lg-0">
             <ScrollAnimation animationType="zoom-in" duration="slow">
-              <Tilt tiltMaxAngleX={15} tiltMaxAngleY={15} scale={1.05} transitionSpeed={2000}>
+              <Tilt max={15} scale={1.05} transition={400} style={{ borderRadius: '1rem' }}>
                 <div className="avatar-card">
                   <div className="avatar-glow"></div>
                   <img src={myImg} className="img-fluid avatar-image" alt="avatar" loading="lazy" />

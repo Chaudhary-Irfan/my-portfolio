@@ -20,6 +20,8 @@ const About = lazy(() => import("./components/About/About"));
 const Projects = lazy(() => import("./components/Projects/Projects"));
 const Resume = lazy(() => import("./components/Resume/ResumeNew"));
 const Services = lazy(() => import("./components/Services/Services"));
+const Blog = lazy(() => import("./components/Blog/Blog")); 
+const BlogPost = lazy(() => import("./components/Blog/BlogPost"));
 
 // Loading component for suspense fallback
 const LazyLoader = () => {
@@ -79,7 +81,7 @@ function App() {
   return (
     <Router>
       <Preloader load={load} />
-      <div className={`App ${darkMode ? 'dark-theme' : 'light-theme'}`} id={load ? "no-scroll" : "scroll"}>
+      <div className={`App ${darkMode ? 'dark-mode' : 'light-mode'}`} id={load ? "no-scroll" : "scroll"}>
         <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <ScrollToTop />
         <Suspense fallback={<LazyLoader />}>
@@ -88,6 +90,8 @@ function App() {
             <Route path="/project" element={<Projects />} />
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="*" element={<Navigate to="/"/>} />
           </Routes>

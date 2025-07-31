@@ -142,9 +142,12 @@ function NavBar() {
 
             <Nav.Item>
               <Nav.Link
-                href="https://www.linkedin.com/in/chaudhary-irfan/recent-activity/all/"
-                target="_blank"
-                rel="noreferrer"
+                as={Link}
+                to="/blog"
+                onClick={() => updateExpanded(false)}
+                className={isActive('/blog') ? 'nav-link-active' : ''}
+                // target="_blank"
+                // rel="noreferrer"
               >
                 <ImBlog className="nav-icon" /> 
                 <span>Blogs</span>
@@ -161,7 +164,7 @@ function NavBar() {
               </Button>
             </Nav.Item>
 
-            <Nav.Item className="fork-btn">
+            {/* <Nav.Item className="fork-btn">
               <Button
                 href="https://github.com/Chaudhary-Irfan/TechSpyrce-Portfolio"
                 target="_blank"
@@ -171,7 +174,7 @@ function NavBar() {
                 <CgGitFork style={{ fontSize: "1.2em" }} />
                 <AiFillStar style={{ fontSize: "1.1em" }} />
               </Button>
-            </Nav.Item>
+            </Nav.Item> */}
           </Nav>
         </Navbar.Collapse>
       </Container>

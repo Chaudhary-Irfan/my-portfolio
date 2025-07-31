@@ -10,7 +10,8 @@ html {
   --text-primary: #f3f4f6;
   --text-secondary: #d1d5db;
   --text-tertiary: #9ca3af;
-  
+  --bg-light: #f9fafb;
+
   /* Prevent horizontal scrolling */
   overflow-x: hidden;
   max-width: 100%;
@@ -711,10 +712,9 @@ button:focus {
   transition: all 0.5s ease;
 }
 
+
 .avatar-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(79, 70, 229, 0.4);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
 }
 
 .avatar-glow {
@@ -1129,13 +1129,13 @@ button:focus {
   }
 }
 
-.scroll-to-top {
+/* .scroll-to-top {
   position: fixed;
   bottom: 0px;
   right: 20px;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
+  width: 5px;
+  height: 110px;
+  border-radius: 5%;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: white;
   display: flex;
@@ -1147,7 +1147,7 @@ button:focus {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   z-index: 999;
-}
+} */
 
 .scroll-to-top:hover {
   transform: translateY(-5px);
