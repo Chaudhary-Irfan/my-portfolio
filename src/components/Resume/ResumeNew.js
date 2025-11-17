@@ -41,7 +41,7 @@ function ResumeNew() {
 
         <ScrollAnimation animationType="zoom-in" duration="slow">
           <Row className="resume">
-            <Document file={pdf} className="d-flex justify-content-center">
+            <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess} className="d-flex justify-content-center">
               {Array.from(new Array(numPages), (el, index) => (
                 <Page
                   key={`page_${index + 1}`}
