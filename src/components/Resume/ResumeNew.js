@@ -40,18 +40,41 @@ function ResumeNew() {
         </ScrollAnimation>
 
         <ScrollAnimation animationType="zoom-in" duration="slow">
-          <Row className="resume">
-            <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess} className="d-flex justify-content-center">
-              {Array.from(new Array(numPages), (el, index) => (
-                <Page
-                  key={`page_${index + 1}`}
-                  pageNumber={index + 1}
-                  scale={width > 786 ? 1.7 : 0.6}
-                />
-              ))}
-            </Document>
-          </Row>
-        </ScrollAnimation>
+  <Row className="resume" style={{ justifyContent: "center" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        overflowY: "auto",
+        overflowX: "hidden",
+        maxHeight: "90vh",
+        width: "100%",
+        alignItems: "center",
+        paddingBottom: "20px",
+      }}
+    >
+      <Document
+        file={pdf}
+        onLoadSuccess={onDocumentLoadSuccess}
+        className="d-flex flex-column align-items-center"
+      >
+        {numPages &&
+          Array.from({ length: numPages }, (_, index) => (
+            <Page
+              key={`page_${index + 1}`}
+              pageNumber={index + 1}
+              scale={width > 786 ? 1.7 : 0.6}
+              renderTextLayer={false}
+              renderAnnotationLayer={false}
+              style={{ marginBottom: "20px" }}
+            />
+          ))}
+      </Document>
+    </div>
+  </Row>
+</ScrollAnimation>
+
+
 
         <ScrollAnimation animationType="slide-up" duration="normal">
           <Row style={{ justifyContent: "center", position: "relative" }}>
